@@ -1,3 +1,15 @@
+# KubeJS generated / machine-local — don't version
 cache/
-probe/                  # keep if you want typings in the repo and size is OK
+local/
 *.log
+README.txt
+
+# ProbeJS typings: useful for me, but can run to tens of MB.
+# Check with `du -sh probe/` and delete this line if it's small.
+probe/
+
+# editor + OS junk
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
