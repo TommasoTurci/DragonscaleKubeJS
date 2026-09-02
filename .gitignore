@@ -1,0 +1,3 @@
+cache/
+probe/                  # keep if you want typings in the repo and size is OK
+*.log
