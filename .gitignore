@@ -13,3 +13,4 @@ probe/
 Thumbs.db
 *.swp
 .idea/
+/CLAUDE.md
