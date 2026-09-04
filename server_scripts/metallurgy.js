@@ -137,15 +137,22 @@ ServerEvents.recipes(event => {
 })
 
 // Milling
+// Raw JSON rather than event.recipes.create.milling(): the kubejs-create addon
+// that provides the create.* builders and the CreateItem binding is not loaded.
+// Schema taken from create's own data/create/recipe/milling/*.json.
 ServerEvents.recipes(event => {
-    event.recipes.create.milling(
-        [
-            CreateItem.of('create:zinc_nugget', 0.75),
-            CreateItem.of('create:copper_nugget', 0.20),
-            CreateItem.of('minecraft:gold_nugget', 0.20)
+    event.custom({
+        type: 'create:milling',
+        ingredients: [
+            { item: 'minecraft:flint' }
         ],
-        'minecraft:flint'
-    )
+        processing_time: 50,
+        results: [
+            { chance: 0.75, id: 'create:zinc_nugget' },
+            { chance: 0.20, id: 'create:copper_nugget' },
+            { chance: 0.20, id: 'minecraft:gold_nugget' }
+        ]
+    })
 })
 
 // Removals
