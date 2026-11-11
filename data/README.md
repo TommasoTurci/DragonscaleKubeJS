@@ -39,3 +39,11 @@ Deliberately *not* done two other ways:
 Cosmetic — no gameplay effect. Delete both files once copycats drops the stale
 file, and check after any copycats update that the override is still shadowing
 a file that exists.
+
+## Takes effect only after a restart (first time)
+
+KubeJS enumerates `data/` when the server starts, not on `/reload`. When this
+folder was created on 2026-11-11 the override above did nothing through
+`/reload` — 21 catwalk errors still per boot — and a full restart dropped it to
+0 at once. Creating `data/` or adding a namespace under it needs a restart;
+editing a file in a namespace that already existed at boot is just `/reload`.
